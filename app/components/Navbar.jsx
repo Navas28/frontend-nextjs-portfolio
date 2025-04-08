@@ -9,7 +9,7 @@ import {
     MobileNavHeader,
     MobileNavToggle,
     MobileNavMenu,
-} from "@/components/ui/resizable-navbar";
+} from "./ui/resizable-navbar";
 import { ArrowRight } from "lucide-react";
 import { useState } from "react";
 
@@ -42,7 +42,7 @@ export function NavbarDemo() {
                     <NavbarLogo />
                     <NavItems items={navItems} />
                     <div className="flex items-center gap-4 ">
-                        <NavbarButton variant="primary" className="flex gap-2 items-center" href="#contact">
+                        <NavbarButton variant="primary" className="flex gap-2 items-center cursor-none" href="#contact">
                             {" "}
                             Contact <ArrowRight size={20} />
                         </NavbarButton>

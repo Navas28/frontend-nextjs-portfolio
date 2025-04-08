@@ -2,8 +2,8 @@ import React from "react";
 import Image from "next/image";
 import images from "@/assets";
 import { ArrowRight, Download } from "lucide-react";
-import { TextGenerateEffectDemo } from "@/components/TextGenerateEffectDemo";
-import BlurText from "@/src/blocks/TextAnimations/BlurText/BlurText";
+import { TextGenerateEffectDemo } from "@/app/components/TextGenerateEffectDemo";
+import BlurText from "@/app/components/ui/BlurText";
 
 
 const Header = () => {

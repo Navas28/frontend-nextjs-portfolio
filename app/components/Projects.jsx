@@ -1,6 +1,6 @@
 import React from "react";
-import CircularGallery from "@/src/blocks/Components/CircularGallery/CircularGallery";
-import { CanvasRevealEffectDemo } from "@/components/CanvasRevealEffectDemo";
+import CircularGallery from "./ui/CircularGallery";
+import { CanvasRevealEffectDemo } from "./ui/CanvasRevealEffectDemo";
 
 const Projects = () => {
     return (

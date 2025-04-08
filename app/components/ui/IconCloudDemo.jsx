@@ -1,4 +1,4 @@
-import { IconCloud } from "../../../components/ui/icon-cloud";
+import { IconCloud } from "./icon-cloud";
 
 const slugs = [
     "typescript",

@@ -1,7 +1,7 @@
 "use client";
 
 import Header from "./components/Header";
-import { NavbarDemo } from "@/components/NavbarDemo";
+import { NavbarDemo } from "@/app/components/Navbar";
 import { Education } from "@/app/components/Education";
 import { ScrollProgress } from "@/app/components/scroll-progress";
 import Skills from "./components/Skills";
@@ -11,7 +11,6 @@ import { SocialLinks } from "@/app/components/SocialLinks";
 import Footer from "./components/Footer";
 import Projects from "./components/Projects";
 import Contact from "@/app/components/Contact";
-
 
 export default function Home() {
     return (

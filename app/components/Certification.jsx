@@ -2,9 +2,9 @@
 import React from "react";
 import { ContainerScroll } from "./ui/container-scroll-animation";
 import Image from "next/image";
-import { SparklesText } from "../app/components/ui/sparkles-text";
+import { SparklesText } from "./ui/sparkles-text";
 
-export function HeroScrollDemo() {
+export function Certification() {
   return (
     <div className="flex flex-col overflow-hidden" id="certification">
       <ContainerScroll
