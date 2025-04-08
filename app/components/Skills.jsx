@@ -1,6 +1,6 @@
-import { IconCloudDemo } from "@/components/IconCloudDemo";
-import { BorderBeam } from "@/components/ui/border-beam";
-import { SparklesText } from "@/components/ui/sparkles-text";
+import { IconCloudDemo } from "@/app/components/ui/IconCloudDemo";
+import { BorderBeam } from "@/app/components/ui/border-beam";
+import { SparklesText } from "@/app/components/ui/sparkles-text";
 import React from "react";
 import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaGitAlt, FaSass, FaAngular, FaBootstrap } from "react-icons/fa";
 import { SiTailwindcss, SiJavascript, SiNextdotjs, SiMongodb, SiExpress } from "react-icons/si";

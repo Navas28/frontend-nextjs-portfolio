@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
-import { SparklesText } from "./ui/sparkles-text";
+import { SparklesText } from "../app/components/ui/sparkles-text";
 
 export function CanvasRevealEffectDemo() {
     return (

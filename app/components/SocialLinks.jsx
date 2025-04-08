@@ -4,7 +4,7 @@ import React from "react";
 
 import { Dock, DockIcon } from "./ui/dock";
 
-export function DockDemo() {
+export function SocialLinks() {
     return (
         <div className="relative cursor-none">
             <Dock direction="middle">

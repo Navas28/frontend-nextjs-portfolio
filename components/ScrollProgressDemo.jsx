@@ -1,4 +1,4 @@
-import { ScrollProgress } from "./ui/scroll-progress";
+import { ScrollProgress } from "../app/components/scroll-progress";
 
 export function ScrollProgressDemo() {
   return (

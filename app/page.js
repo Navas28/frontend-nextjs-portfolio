@@ -1,28 +1,25 @@
 "use client";
 
-import Header from "./customComponents/Header";
+import Header from "./components/Header";
 import { NavbarDemo } from "@/components/NavbarDemo";
-import { TimelineDemo } from "@/components/TimelineDemo";
-import { ScrollProgress } from "@/components/ui/scroll-progress";
-import Skills from "./customComponents/Skills";
-import { CanvasRevealEffectDemo } from "@/components/CanvasRevealEffectDemo";
-import Particles from "@/src/blocks/Backgrounds/Particles/Particles";
-import { Pointer } from "@/components/ui/pointer";
-import OtherProjects from "./customComponents/OtherProjects";
-import SignupFormDemo from "@/components/SignupFormDemo";
-import { DockDemo } from "@/components/DockDemo";
-import Footer from "./customComponents/Footer";
+import { Education } from "@/app/components/Education";
+import { ScrollProgress } from "@/app/components/scroll-progress";
+import Skills from "./components/Skills";
+import Particles from "@/app/components/Particles";
+import { Pointer } from "@/app/components/CursorPointer";
+import { SocialLinks } from "@/app/components/SocialLinks";
+import Footer from "./components/Footer";
+import Projects from "./components/Projects";
+import Contact from "@/app/components/Contact";
+
 
 export default function Home() {
     return (
         <>
             <div className="relative w-full min-h-screen bg-black overflow-hidden">
-                {/* Particle Background */}
                 <div className="absolute inset-0 z-0">
                     <Particles />
                 </div>
-
-                {/* Content on top of particles */}
                 <div className="relative">
                     <Pointer>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -32,16 +29,13 @@ export default function Home() {
                     </Pointer>
 
                     <ScrollProgress className="top-[0px]" />
-
                     <NavbarDemo />
                     <Header />
-                    <TimelineDemo />
+                    <Education/>
                     <Skills />
-                    <CanvasRevealEffectDemo />
-                    <OtherProjects />
-
-                    <SignupFormDemo />
-                    <DockDemo />
+                    <Projects/>
+                    <Contact/>
+                    <SocialLinks/>
                     <Footer />
                 </div>
             </div>

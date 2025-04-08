@@ -3,9 +3,9 @@
 import React, { useState } from "react";
 import { Timeline } from "./ui/timeline";
 import { TextHoverEffect } from "./ui/text-hover-effect";
-import FadeContent from "@/src/blocks/Animations/FadeContent/FadeContent";
+import FadeContent from "@/app/components/ui/FadeContent";
 
-export function TimelineDemo() {
+export function Education() {
     const data = [
         {
             title: <TextHoverEffect text="2022" />,

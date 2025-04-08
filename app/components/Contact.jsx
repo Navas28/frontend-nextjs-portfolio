@@ -3,14 +3,14 @@
 import React, { useEffect, useState } from "react";
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
-import { cn } from "../lib/utils";
+import { cn } from "../../lib/utils";
 import axios from "axios";
 import { BorderBeam } from "./ui/border-beam";
 import { Textarea } from "./ui/textarea";
 import { SparklesText } from "./ui/sparkles-text";
 import { TextAnimate } from "./ui/text-animate";
 
-export default function SignupFormDemo() {
+export default function Contact() {
     const [formData, setFormData] = useState({
         name: "",
         email: "",

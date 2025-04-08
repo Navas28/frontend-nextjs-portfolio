@@ -3,7 +3,7 @@ import { cva } from "class-variance-authority";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import React, { useRef } from "react";
 
-import { cn } from "../../lib/utils";
+import { cn } from "../../../lib/utils";
 import { BorderBeam } from "./border-beam";
 
 const DEFAULT_SIZE = 40;

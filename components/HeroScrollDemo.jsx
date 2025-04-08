@@ -2,7 +2,7 @@
 import React from "react";
 import { ContainerScroll } from "./ui/container-scroll-animation";
 import Image from "next/image";
-import { SparklesText } from "./ui/sparkles-text";
+import { SparklesText } from "../app/components/ui/sparkles-text";
 
 export function HeroScrollDemo() {
   return (

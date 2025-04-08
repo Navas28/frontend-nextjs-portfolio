@@ -1,5 +1,5 @@
 import React from "react";
-import { TextHoverEffect } from "@/components/ui/text-hover-effect";
+import { TextHoverEffect } from "@/app/components/ui/text-hover-effect";
 
 export function TextHoverEffectDemo() {
   return (
