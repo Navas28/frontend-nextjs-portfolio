@@ -24,28 +24,31 @@ export function NavbarDemo() {
             link: "#education",
         },
         {
-            name: "Projects",
-            link: "#projects",
+            name: "Skills",
+            link: "#skills",
         },
         {
-            name: "Contact",
-            link: "#contact",
+            name: "Projects",
+            link: "#projects",
         },
     ];
 
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     return (
-        <div className=" w-full">
+        <div className="relative w-full">
             <Navbar>
                 <NavBody>
                     <NavbarLogo />
                     <NavItems items={navItems} />
                     <div className="flex items-center gap-4 ">
-                        <NavbarButton variant="primary" className="flex gap-2 items-center">Contact <ArrowRight size={20}/></NavbarButton>
+                        <NavbarButton variant="primary" className="flex gap-2 items-center" href="#contact">
+                            {" "}
+                            Contact <ArrowRight size={20} />
+                        </NavbarButton>
                     </div>
                 </NavBody>
-            
+
                 <MobileNav>
                     <MobileNavHeader>
                         <NavbarLogo />

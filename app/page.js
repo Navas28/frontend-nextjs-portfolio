@@ -1,16 +1,17 @@
-// 'use client'
+"use client";
 
 import Header from "./customComponents/Header";
 import { NavbarDemo } from "@/components/NavbarDemo";
-import { TailwindcssButtons } from "@/components/TailwindcssButtons";
 import { TimelineDemo } from "@/components/TimelineDemo";
-import { TextHoverEffectDemo } from "@/components/TextHoverEffectDemo";
-
 import { ScrollProgress } from "@/components/ui/scroll-progress";
 import Skills from "./customComponents/Skills";
 import { CanvasRevealEffectDemo } from "@/components/CanvasRevealEffectDemo";
 import Particles from "@/src/blocks/Backgrounds/Particles/Particles";
 import { Pointer } from "@/components/ui/pointer";
+import OtherProjects from "./customComponents/OtherProjects";
+import SignupFormDemo from "@/components/SignupFormDemo";
+import { DockDemo } from "@/components/DockDemo";
+import Footer from "./customComponents/Footer";
 
 export default function Home() {
     return (
@@ -29,12 +30,19 @@ export default function Home() {
                             <circle cx="12" cy="12" r="5" className="fill-black" />
                         </svg>
                     </Pointer>
+
                     <ScrollProgress className="top-[0px]" />
+
                     <NavbarDemo />
                     <Header />
                     <TimelineDemo />
                     <Skills />
                     <CanvasRevealEffectDemo />
+                    <OtherProjects />
+
+                    <SignupFormDemo />
+                    <DockDemo />
+                    <Footer />
                 </div>
             </div>
         </>

@@ -9,14 +9,23 @@ export const TextHoverEffect = ({ text, duration}) => {
   const [maskPosition, setMaskPosition] = useState({ cx: "50%", cy: "50%" });
 
   useEffect(() => {
-    if (svgRef.current && cursor.x !== null && cursor.y !== null) {
+    if (svgRef.current && hovered && cursor.x !== null && cursor.y !== null) {
       const svgRect = svgRef.current.getBoundingClientRect();
-      const cxPercentage = ((cursor.x - svgRect.left) / svgRect.width) * 100;
-      const cyPercentage = ((cursor.y - svgRect.top) / svgRect.height) * 100;
-      setMaskPosition({
-        cx: `${cxPercentage}%`,
-        cy: `${cyPercentage}%`,
-      });
+      
+      // Ensure cursor is within bounds of SVG
+      if (cursor.x >= svgRect.left && cursor.x <= svgRect.right && 
+          cursor.y >= svgRect.top && cursor.y <= svgRect.bottom) {
+        const cxPercentage = ((cursor.x - svgRect.left) / svgRect.width) * 100;
+        const cyPercentage = ((cursor.y - svgRect.top) / svgRect.height) * 100;
+        
+        // Check if values are valid numbers before updating
+        if (!isNaN(cxPercentage) && !isNaN(cyPercentage)) {
+          setMaskPosition({
+            cx: `${cxPercentage}%`,
+            cy: `${cyPercentage}%`,
+          });
+        }
+      }
     }
   }, [cursor]);
 

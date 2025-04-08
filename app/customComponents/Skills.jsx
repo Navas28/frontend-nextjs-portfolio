@@ -23,48 +23,48 @@ const Skills = () => {
     ];
 
     return (
-        <section className="flex flex-col justify-center items-center">
-            <div className="py-16 w-[90%]   dark:bg-gray-900">
-                <div className="container mx-auto px-4">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 ">
-                        <div className="space-y-12 bg-black/70">
-                            <div className="space-y-4">
-                                <SparklesText text="Skills & Tools" className="text-white" />
-                            </div>
-
-                            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 ">
-                                {skills.map((skill, index) => (
-                                    <div
-                                        key={index}
-                                        className="relative flex flex-col items-center p-4 bg-black dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden"
-                                    >
-                                        <BorderBeam
-                                            size={180}
-                                            duration={6}
-                                            className="from-transparent via-red-500 to-transparent"
-                                        />
-                                        <BorderBeam
-                                            size={180}
-                                            duration={6}
-                                            delay={3}
-                                            className="from-transparent via-blue-500 to-transparent"
-                                        />
-
-                                        <div className="mb-3 z-10">{skill.icon}</div>
-                                        <h3 className=" font-para font-semibold text-white dark:text-gray-200 z-10">
-                                            {skill.name}
-                                        </h3>
-                                    </div>
-                                ))}
-                            </div>
+        <section className="flex flex-col justify-center items-center" id="skills">
+        <div className="py-16 w-[90%] dark:bg-gray-900">
+            <div className="container mx-auto px-4">
+                <div className="flex justify-center mb-12">
+                    <SparklesText text="Skills & Tools" className="text-white" />
+                </div>
+                
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div className="space-y-12 bg-black/70">
+                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                            {skills.map((skill, index) => (
+                                <div
+                                    key={index}
+                                    className="relative flex flex-col items-center p-4 bg-black dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden"
+                                >
+                                    <BorderBeam
+                                        size={180}
+                                        duration={6}
+                                        className="from-transparent via-red-500 to-transparent"
+                                    />
+                                    <BorderBeam
+                                        size={180}
+                                        duration={6}
+                                        delay={3}
+                                        className="from-transparent via-blue-500 to-transparent"
+                                    />
+    
+                                    <div className="mb-3 z-10">{skill.icon}</div>
+                                    <h3 className="font-para font-semibold text-white dark:text-gray-200 z-10">
+                                        {skill.name}
+                                    </h3>
+                                </div>
+                            ))}
                         </div>
-                        <div className="bg-black/50">
-                            <IconCloudDemo />
-                        </div>
+                    </div>
+                    <div className="bg-black/50">
+                        <IconCloudDemo />
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
     );
 };
 

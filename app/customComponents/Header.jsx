@@ -8,9 +8,9 @@ import BlurText from "@/src/blocks/TextAnimations/BlurText/BlurText";
 
 const Header = () => {
     return (
-        <div className="w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center justify-center gap-4">
+        <div className="w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center justify-center gap-4" id="home">
             <div>
-                <Image src={images.demo} alt="profile image" className="rounded-full" width={100} height={100} />
+                <Image src="/images/demo.jpeg" alt="profile image" className="rounded-full"   style={{ width: 'auto', height: 'auto' }}  priority width={100} height={100} />
             </div>
             <h3 className="flex items-end gap-2 text-xl md:text-2xl  font-para text-white">Hi! Iam Navas</h3>
             <TextGenerateEffectDemo/>

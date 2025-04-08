@@ -110,6 +110,7 @@ const Particles = ({
     const mouseRef = useRef({ x: 0, y: 0 });
 
     useEffect(() => {
+        
         const container = containerRef.current;
         if (!container) return;
 

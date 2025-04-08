@@ -37,7 +37,7 @@ export function TimelineDemo() {
         },
     ];
     return (
-        <div className="w-full text-white">
+        <div className="w-full text-white" id="education">
             <Timeline data={data} />
         </div>
     );
