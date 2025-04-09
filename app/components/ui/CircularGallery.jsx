@@ -34,7 +34,7 @@ function autoBind(instance) {
 function createTextTexture(
   gl,
   text,
-  font = "bold 30px monospace",
+  font = "bold 30px inherit",
   color = "black",
 ) {
   const canvas = document.createElement("canvas");
@@ -133,6 +133,7 @@ class Media {
     textColor,
     borderRadius = 0,
     font,
+    link, 
   }) {
     this.extra = 0;
     this.geometry = geometry;
@@ -149,6 +150,7 @@ class Media {
     this.textColor = textColor;
     this.borderRadius = borderRadius;
     this.font = font;
+    this.link = link; 
     this.createShader();
     this.createMesh();
     this.createTitle();
@@ -190,6 +192,7 @@ class Media {
         }
         
         void main() {
+           
           vec2 ratio = vec2(
             min((uPlaneSizes.x / uPlaneSizes.y) / (uImageSizes.x / uImageSizes.y), 1.0),
             min((uPlaneSizes.y / uPlaneSizes.x) / (uImageSizes.y / uImageSizes.x), 1.0)
@@ -247,6 +250,22 @@ class Media {
       fontFamily: this.font,
     });
   }
+  
+  isPointInside(x, y) {
+  
+    const planeOffset = this.plane.scale.x / 2;
+    const viewportOffset = this.viewport.width / 2;
+    const worldX = (x / this.screen.width) * this.viewport.width - viewportOffset;
+    const worldY = -(y / this.screen.height) * this.viewport.height + this.viewport.height / 2;
+    
+    const left = this.plane.position.x - planeOffset;
+    const right = this.plane.position.x + planeOffset;
+    const top = this.plane.position.y + this.plane.scale.y / 2;
+    const bottom = this.plane.position.y - this.plane.scale.y / 2;
+    
+    return worldX >= left && worldX <= right && worldY >= bottom && worldY <= top;
+  }
+  
   update(scroll, direction) {
     this.plane.position.x = this.x - scroll.current - this.extra;
 
@@ -299,15 +318,29 @@ class Media {
         ];
       }
     }
+    
     this.scale = this.screen.height / 1500;
+    
+    // Determine width multiplier based on screen width
+    let widthMultiplier;
+    if (this.screen.width < 640) {        // Small screens (mobile)
+      widthMultiplier = 900;
+    } else if (this.screen.width < 1024) { // Medium screens (tablet)
+      widthMultiplier = 1200;
+    } else {                              // Large screens (desktop)
+      widthMultiplier = 1400;
+    }
+    
     this.plane.scale.y =
-      (this.viewport.height * (900 * this.scale)) / this.screen.height;
+      (this.viewport.height * (1000 * this.scale)) / this.screen.height;
     this.plane.scale.x =
-      (this.viewport.width * (700 * this.scale)) / this.screen.width;
+      (this.viewport.width * (widthMultiplier * this.scale)) / this.screen.width;
+      
     this.plane.program.uniforms.uPlaneSizes.value = [
       this.plane.scale.x,
       this.plane.scale.y,
     ];
+    
     this.padding = 2;
     this.width = this.plane.scale.x + this.padding;
     this.widthTotal = this.width * this.length;
@@ -362,52 +395,64 @@ class App {
   createMedias(items, bend = 1, textColor, borderRadius, font) {
     const defaultItems = [
       {
-        image: `/images/demo.jpeg`,
+        image: `/images/car.png`,
         text: "project 1",
+        link: "https://example.com/project1", 
       },
       {
-        image: `/images/demo.jpeg`,
+        image: `/images/ferrari.png`,
         text: "Desk Setup",
+        link: "https://example.com/desk-setup",
       },
       {
-        image: `/images/demo.jpeg`,
+        image: `/images/ferrari1.png`,
         text: "Waterfall",
+        link: "https://example.com/waterfall",
       },
       {
-        image: `/images/demo.jpeg`,
+        image: `/images/series.png`,
         text: "Strawberries",
+        link: "https://example.com/strawberries",
       },
       {
-        image: `/images/demo.jpeg`,
+        image: `/images/travel.png`,
         text: "Deep Diving",
+        link: "https://example.com/deep-diving",
       },
       {
-        image: `/images/demo.jpeg`,
+        image: `/images/web-development.png`,
         text: "Train Track",
+        link: "https://example.com/train-track",
       },
       {
         image: `/images/demo.jpeg`,
         text: "Santorini",
+        link: "https://example.com/santorini",
       },
       {
         image: `/images/demo.jpeg`,
         text: "Blurry Lights",
+        link: "https://example.com/blurry-lights",
       },
       {
         image: `/images/demo.jpeg`,
         text: "New York",
+        link: "https://example.com/new-york",
       },
       {
         image: `/images/demo.jpeg`,
         text: "Good Boy",
+        link: "https://example.com/good-boy",
       },
       {
         image: `/images/demo.jpeg`,
         text: "Coastline",
+        link: "https://example.com/coastline",
       },
       {
         image: `/images/demo.jpeg`,
         text: "Palm Trees",
+        link: "https://example.com/palm-trees",
       },
     ];
     const galleryItems = items && items.length ? items : defaultItems;
@@ -428,9 +473,39 @@ class App {
         textColor,
         borderRadius,
         font,
+        link: data.link,
       });
     });
   }
+
+  onClick(e) {
+    
+    if (this.isDown) return;
+    
+    const x = e.touches ? e.touches[0].clientX : e.clientX;
+    const y = e.touches ? e.touches[0].clientY : e.clientY;
+    this.medias.forEach(media => {
+      if (media.isPointInside(x, y) && media.link) {
+        window.open(media.link, '_blank');
+      }
+    });
+  }
+ 
+  onMouseMove(e) {
+    const x = e.clientX;
+    const y = e.clientY;
+    let isOverItem = false;
+    
+    this.medias.forEach(media => {
+      if (media.isPointInside(x, y) && media.link) {
+        isOverItem = true;
+      }
+    });
+    
+    // Update cursor style
+    this.container.style.cursor = isOverItem ? 'none' : 'none';
+  }
+  
   onTouchDown(e) {
     this.isDown = true;
     this.scroll.position = this.scroll.current;
@@ -496,6 +571,9 @@ class App {
     this.boundOnTouchDown = this.onTouchDown.bind(this);
     this.boundOnTouchMove = this.onTouchMove.bind(this);
     this.boundOnTouchUp = this.onTouchUp.bind(this);
+    this.boundOnClick = this.onClick.bind(this);
+    this.boundOnMouseMove = this.onMouseMove.bind(this);
+    
     window.addEventListener("resize", this.boundOnResize);
     window.addEventListener("mousewheel", this.boundOnWheel);
     window.addEventListener("wheel", this.boundOnWheel);
@@ -505,6 +583,8 @@ class App {
     window.addEventListener("touchstart", this.boundOnTouchDown);
     window.addEventListener("touchmove", this.boundOnTouchMove);
     window.addEventListener("touchend", this.boundOnTouchUp);
+    window.addEventListener("click", this.boundOnClick);
+    window.addEventListener("mousemove", this.boundOnMouseMove);
   }
   destroy() {
     window.cancelAnimationFrame(this.raf);
@@ -517,6 +597,8 @@ class App {
     window.removeEventListener("touchstart", this.boundOnTouchDown);
     window.removeEventListener("touchmove", this.boundOnTouchMove);
     window.removeEventListener("touchend", this.boundOnTouchUp);
+    window.removeEventListener("click", this.boundOnClick);
+    window.removeEventListener("mousemove", this.boundOnMouseMove);
     if (
       this.renderer &&
       this.renderer.gl &&
@@ -549,7 +631,7 @@ export default function CircularGallery({
   }, [items, bend, textColor, borderRadius, font]);
   return (
     <div
-      className="w-full h-full overflow-hidden cursor-none"
+      className="w-full  h-full overflow-hidden"
       ref={containerRef}
     />
   );
