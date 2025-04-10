@@ -22,7 +22,7 @@ export function AnimatedPinDemo() {
         {
             title: "Ferrari",
             href: "https://ferrari-website.vercel.app/",
-            images: ["/images/ferrari.png", "/images/ferrari1.png"],
+            images: ["/images/ferrari.png", "/images/ferrari-2.png"],
           },
           {
             title: "Fresh Cart",
