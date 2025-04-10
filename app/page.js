@@ -20,10 +20,10 @@ export default function Home() {
                     <Particles />
                 </div>
                 <div className="relative">
-                    <Pointer>
+                    <Pointer className="hidden md:block">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="12" cy="12" r="8" className="fill-white" />
-                            <circle cx="12" cy="12" r="5" className="fill-black" />
+                            <circle cx="12" cy="12" r="8" className="fill-white hidden md:block" />
+                            <circle cx="12" cy="12" r="5" className="fill-black hidden md:block" />
                         </svg>
                     </Pointer>
 
