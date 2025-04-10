@@ -7,10 +7,10 @@ import BlurText from "@/app/components/ui/BlurText";
 const Header = () => {
     return (
         <div
-            className="w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center justify-center gap-4"
+            className="w-11/12 max-w-3xl text-center mx-auto pt-24 min-h-screen flex flex-col items-center justify-center gap-4"
             id="home"
         >
-            <div className="mt-20 sm:mt-0">
+            <div>
                 <Image
                     src="/images/demo.jpeg"
                     alt="profile image"
