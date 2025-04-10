@@ -43,7 +43,7 @@ export default function Contact() {
         setResponseType("");
 
         try {
-            const res = await axios.post("http://localhost:5000/api/contact", formData);
+            const res = await axios.post("https://backend-nextjs-portfolio-2.onrender.com/api/contact", formData);
             if (res.data.success) {
                 setResponseType("success");
                 setResponseMsg("Message sent successfully!");
