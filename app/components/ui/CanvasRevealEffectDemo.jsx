@@ -118,7 +118,7 @@ const Card = ({ title, icon, imageSrc, tech = [], demoUrl, sourceUrl, children }
                         {React.cloneElement(icon, { className: "text-white" })}
                     </div>
 
-                    <h2 className="text-2xl font-bold text-white mb-3 px-4">{title}</h2>
+                    <h2 className="font-para text-lg  sm:text-2xl font-bold text-white mb-3 px-4">{title}</h2>
 
                     <div className="flex flex-wrap justify-center gap-2 max-w-md mb-6">
                         {tech.map((tool, idx) => (
@@ -137,7 +137,7 @@ const Card = ({ title, icon, imageSrc, tech = [], demoUrl, sourceUrl, children }
                                 href={demoUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="cursor-none px-5 py-2 flex gap-3 font-medium items-center text-md rounded-lg border border-black/50 bg-white text-black hover:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] transition duration-200"
+                                className="cursor-none px-2  sm:px-5 sm:py-2 flex gap-3 font-medium items-center text-md rounded-md border border-black/50 bg-white text-black hover:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] transition duration-200"
                             >
                                 View Demo
                             </a>
@@ -147,7 +147,7 @@ const Card = ({ title, icon, imageSrc, tech = [], demoUrl, sourceUrl, children }
                                 href={sourceUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="cursor-none px-4 py-1 flex gap-3 font-medium items-center text-md rounded-lg border border-black/50 bg-white text-black hover:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] transition duration-200"
+                                className="cursor-none px-2 sm:px-4 sm:py-1 flex gap-3 font-medium items-center text-md rounded-md border border-black/50 bg-white text-black hover:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] transition duration-200"
                             >
                                 Source Code
                             </a>

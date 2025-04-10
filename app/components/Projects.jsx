@@ -8,9 +8,6 @@ const Projects = () => {
         <div>
             <CanvasRevealEffectDemo />
             <AnimatedPinDemo/>
-            {/* <div style={{ height: "600px", position: "relative"}}>
-                <CircularGallery textColor="#ffffff" borderRadius={0.05} />
-            </div> */}
         </div>
     );
 };
