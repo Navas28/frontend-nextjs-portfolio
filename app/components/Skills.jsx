@@ -11,7 +11,7 @@ const Skills = () => {
         { name: "CSS3", icon: <FaCss3Alt className="text-[#1572B6]" size={36} /> },
         { name: "JavaScript", icon: <SiJavascript className="text-[#F7DF1E]" size={36} /> },
         { name: "React", icon: <FaReact className="text-[#61DAFB]" size={36} /> },
-        { name: "Angular", icon: <FaAngular className="text-[#DD0031]" size={36} /> },
+        // { name: "Angular", icon: <FaAngular className="text-[#DD0031]" size={36} /> },
         { name: "Next.js", icon: <SiNextdotjs className="text-[#ffff] dark:text-white" size={36} /> },
         { name: "Node.js", icon: <FaNodeJs className="text-[#339933]" size={36} /> },
         { name: "Express", icon: <SiExpress className="text-[#ffff] dark:text-gray-300" size={36} /> },

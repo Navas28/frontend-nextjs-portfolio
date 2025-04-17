@@ -1,7 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-
 @custom-variant dark (&:is(.dark *));
 
 @font-face {
@@ -25,23 +24,11 @@
   --font-head: Teko, sans-serif;
   --font-sub: AverageSans, sans-serif;
   --font-para: Metrophobic, sans-serif;
-/* 
-  --color-customeGreen: #14281d;
-  --color-customeWhite: #fffcdc;
-  --color-customoff: #F5F5DC;
-  --color-customMediumGreen: #214e34;
-  --color-customLightGreen: #ACCF60; */
 }
 html {
   scroll-behavior: smooth;
 }
-/* body{
-  background-color: black;
-} */
 
-/* body{
-  cursor: none;
-} */
 /*   ---break--- */
 :root {
   --radius: 0.625rem;
