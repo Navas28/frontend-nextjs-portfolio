@@ -12,12 +12,12 @@ const Header = () => {
         >
             <div>
                 <Image
-                    src="/images/demo.jpeg"
+                    src="/images/profile-2-bg.png"
                     alt="profile image"
-                    className="rounded-full"
+                    className="rounded-full border-white border-2"
                     style={{ width: "auto", height: "auto" }}
                     priority
-                    width={100}
+                    width={150}
                     height={100}
                 />
             </div>
