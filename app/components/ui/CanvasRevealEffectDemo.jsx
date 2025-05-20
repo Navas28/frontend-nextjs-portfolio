@@ -15,6 +15,14 @@ export function CanvasRevealEffectDemo() {
 
             <div className="flex flex-col justify-center gap-12">
                 <Card
+                    title=" Zyvol - Sneakers Store"
+                    icon={<FaGithub size={50} />}
+                    imageSrc="/images/zyvol.png"
+                    tech={["Next Js", "Express Js", "Mongo DB", "Typescript", "Clerk", "Stripe", "Redux Toolkit", "Tailwind CSS", "Cloudinary", "ShadCN"]}
+                    demoUrl="https://zyvol.vercel.app/"
+                    sourceUrl="https://github.com/Navas28/zyvol-frontend.git"
+                />
+                <Card
                     title="Animazia - Zoo Website"
                     icon={<FaGithub size={50} />}
                     imageSrc="/images/animazia.png"
