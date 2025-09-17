@@ -32,14 +32,14 @@ const Header = () => {
             <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">
                 <a
                     href="#contact"
-                    className="cursor-none px-4 py-3 flex gap-3 items-center text-md rounded-lg border border-black/50 bg-white text-black  hover:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] transition duration-200"
+                    className="cursor-none px-6 py-3  flex gap-3 items-center md:text-lg text-md rounded-lg border border-black/50 bg-white text-black  hover:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] transition duration-200 font-bold"
                 >
                     Contact me <ArrowRight />
                 </a>
                 <a
                     href="/pdf/navas-resume.pdf"
                     download
-                    className="cursor-none px-4 py-3 flex gap-3 items-center text-md rounded-lg border border-black/50 bg-white text-black  hover:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] transition duration-200"
+                    className="cursor-none px-6 py-3 flex gap-3 items-center md:text-lg font-bold text-md rounded-lg border border-black/50 bg-white text-black  hover:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] transition duration-200"
                 >
                     My resume <Download />
                 </a>
