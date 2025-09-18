@@ -1,71 +1,176 @@
-import { IconCloudDemo } from "@/app/components/ui/IconCloudDemo";
-import { BorderBeam } from "@/app/components/ui/border-beam";
-import { SparklesText } from "@/app/components/ui/sparkles-text";
-import React from "react";
-import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaGitAlt, FaSass, FaAngular, FaBootstrap } from "react-icons/fa";
-import { SiTailwindcss, SiJavascript, SiNextdotjs, SiMongodb, SiExpress } from "react-icons/si";
+"use client";
+import { motion } from "motion/react";
+import {
+    SiHtml5,
+    SiCss3,
+    SiJavascript,
+    SiReact,
+    SiNextdotjs,
+    SiMongodb,
+    SiExpress,
+    SiPostman,
+    SiTailwindcss,
+    SiGit,
+    SiGithub,
+    SiStripe,
+    SiCloudinary,
+    SiVercel,
+    SiClerk,
+    SiSwiper,
+} from "react-icons/si";
+import { SparklesText } from "./ui/sparkles-text";
 
-const Skills = () => {
-    const skills = [
-        { name: "HTML5", icon: <FaHtml5 className="text-[#E34F26]" size={36} /> },
-        { name: "CSS3", icon: <FaCss3Alt className="text-[#1572B6]" size={36} /> },
-        { name: "JavaScript", icon: <SiJavascript className="text-[#F7DF1E]" size={36} /> },
-        { name: "React", icon: <FaReact className="text-[#61DAFB]" size={36} /> },
-        // { name: "Angular", icon: <FaAngular className="text-[#DD0031]" size={36} /> },
-        { name: "Next.js", icon: <SiNextdotjs className="text-[#ffff] dark:text-white" size={36} /> },
-        { name: "Node.js", icon: <FaNodeJs className="text-[#339933]" size={36} /> },
-        { name: "Express", icon: <SiExpress className="text-[#ffff] dark:text-gray-300" size={36} /> },
-        { name: "MongoDB", icon: <SiMongodb className="text-[#47A248]" size={36} /> },
-        { name: "Tailwind CSS", icon: <SiTailwindcss className="text-[#06B6D4]" size={36} /> },
-        { name: "Bootstrap", icon: <FaBootstrap className="text-[#7952B3]" size={36} /> },
-        { name: "SCSS", icon: <FaSass className="text-[#CD6799]" size={36} /> },
-        { name: "Git", icon: <FaGitAlt className="text-[#F05032]" size={36} /> },
-    ];
+const skillCategories = [
+    {
+        title: "Frontend Development",
+        skills: [
+            { name: "HTML", icon: SiHtml5, color: "#E34F26" },
+            { name: "CSS", icon: SiCss3, color: "#1572B6" },
+            { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
+            { name: "React", icon: SiReact, color: "#61DAFB" },
+            { name: "Next.js", icon: SiNextdotjs, color: "#ffffff" },
+            { name: "Tailwind", icon: SiTailwindcss, color: "#06B6D4" },
+            { name: "Swiper", icon: SiSwiper, color: "#6332F6" },
+        ],
+    },
+    {
+        title: "Backend & Database",
+        skills: [
+            { name: "Express.js", icon: SiExpress, color: "#ffffff" },
+            { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
+            { name: "Stripe", icon: SiStripe, color: "#008CDD" },
+            { name: "Cloudinary", icon: SiCloudinary, color: "#3448C5" },
+            { name: "Clerk", icon: SiClerk, color: "#6C47FF" },
+        ],
+    },
+    {
+        title: "Development Tools",
+        skills: [
+            { name: "Git", icon: SiGit, color: "#F05032" },
+            { name: "GitHub", icon: SiGithub, color: "#ffffff" },
+            { name: "Postman", icon: SiPostman, color: "#FF6C37" },
+            { name: "Vercel", icon: SiVercel, color: "#ffffff" },
+        ],
+    },
+];
 
+export default function SkillsShowcase() {
     return (
-        <section className="flex flex-col justify-center items-center" id="skills">
-        <div className="py-16 w-[90%] dark:bg-gray-900">
-            <div className="container mx-auto px-4">
+        <section className="flex flex-col items-center justify-center px-4 md:px-6 py-10">
+            <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="text-center mb-12"
+            >
                 <div className="flex justify-center mb-12">
                     <SparklesText text="Skills & Tools" className="text-white" />
                 </div>
-                
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <div className="space-y-12 bg-black/70">
-                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                            {skills.map((skill, index) => (
-                                <div
-                                    key={index}
-                                    className="relative flex flex-col items-center p-4 bg-black dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden"
-                                >
-                                    <BorderBeam
-                                        size={180}
-                                        duration={6}
-                                        className="from-transparent via-red-500 to-transparent"
-                                    />
-                                    <BorderBeam
-                                        size={180}
-                                        duration={6}
-                                        delay={3}
-                                        className="from-transparent via-blue-500 to-transparent"
-                                    />
-    
-                                    <div className="mb-3 z-10">{skill.icon}</div>
-                                    <h3 className="font-para font-semibold text-white dark:text-gray-200 z-10">
-                                        {skill.name}
-                                    </h3>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                    <div className="bg-black/50">
-                        <IconCloudDemo />
-                    </div>
+            </motion.div>
+
+            {/* Horizontal Layout for Categories */}
+            <div className="w-full max-w-7xl">
+                {/* Desktop: Horizontal Layout */}
+                <div className="hidden lg:grid lg:grid-cols-3 gap-12">
+                    {skillCategories.map((category, categoryIndex) => (
+                        <motion.div
+                            key={category.title}
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: categoryIndex * 0.2 }}
+                            className="p-4"
+                        >
+                            {/* Category Title */}
+                            <h3 className="text-2xl font-semibold text-white mb-8 text-center">{category.title}</h3>
+
+                            {/* Skills Grid - Minimum 3 columns for desktop */}
+                            <div className="grid grid-cols-3 gap-6">
+                                {category.skills.map((skill, skillIndex) => (
+                                    <motion.div
+                                        key={skill.name}
+                                        initial={{ opacity: 0, scale: 0.5 }}
+                                        whileInView={{ opacity: 1, scale: 1 }}
+                                        viewport={{ once: true }}
+                                        transition={{
+                                            duration: 0.4,
+                                            delay: categoryIndex * 0.1 + skillIndex * 0.05,
+                                            ease: "easeOut",
+                                        }}
+                                        whileHover={{
+                                            scale: 1.15,
+                                            y: -10,
+                                            transition: { duration: 0.2 },
+                                        }}
+                                        className="group relative cursor-pointer"
+                                    >
+                                        <div className="flex flex-col items-center justify-center space-y-4 p-4">
+                                            <skill.icon 
+                                                className="text-4xl transition-all duration-300 group-hover:scale-125" 
+                                                style={{ color: skill.color }}
+                                            />
+                                            <span className="text-white text-base font-medium text-center opacity-90 group-hover:opacity-100 transition-all duration-300">
+                                                {skill.name}
+                                            </span>
+                                        </div>
+                                    </motion.div>
+                                ))}
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
+
+                {/* Mobile/Tablet: Vertical Layout */}
+                <div className="lg:hidden space-y-10">
+                    {skillCategories.map((category, categoryIndex) => (
+                        <motion.div
+                            key={category.title}
+                            initial={{ opacity: 0, x: -50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: categoryIndex * 0.2 }}
+                            className="p-4"
+                        >
+                            {/* Category Title */}
+                            <h3 className="text-xl font-semibold text-white mb-8 text-center">{category.title}</h3>
+
+                            {/* Skills Grid - 2 columns for mobile */}
+                            <div className="grid grid-cols-2 gap-6">
+                                {category.skills.map((skill, skillIndex) => (
+                                    <motion.div
+                                        key={skill.name}
+                                        initial={{ opacity: 0, scale: 0.5 }}
+                                        whileInView={{ opacity: 1, scale: 1 }}
+                                        viewport={{ once: true }}
+                                        transition={{
+                                            duration: 0.4,
+                                            delay: categoryIndex * 0.1 + skillIndex * 0.05,
+                                            ease: "easeOut",
+                                        }}
+                                        whileHover={{
+                                            scale: 1.15,
+                                            y: -10,
+                                            transition: { duration: 0.2 },
+                                        }}
+                                        className="group relative cursor-pointer"
+                                    >
+                                        <div className="flex flex-col items-center justify-center space-y-3 p-4">
+                                            <skill.icon 
+                                                className="text-3xl transition-all duration-300 group-hover:scale-125" 
+                                                style={{ color: skill.color }}
+                                            />
+                                            <span className="text-white text-sm font-medium text-center opacity-90 group-hover:opacity-100 transition-all duration-300">
+                                                {skill.name}
+                                            </span>
+                                        </div>
+                                    </motion.div>
+                                ))}
+                            </div>
+                        </motion.div>
+                    ))}
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
     );
-};
-
-export default Skills;
+}

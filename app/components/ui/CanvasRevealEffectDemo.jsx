@@ -6,19 +6,19 @@ import { FaGithub } from "react-icons/fa";
 import { SparklesText } from "./sparkles-text";
 import { BorderBeam } from "./border-beam";
 
-export function CanvasRevealEffectDemo() {
+export function  CanvasRevealEffectDemo() {
     return (
         <div className="mx-auto" id="projects">
-            <div className="text-center mb-8">
+            <div className="text-center mb-8 sm:mb-18">
                 <SparklesText text="Top Projects" className="text-white" />
             </div>
 
-            <div className="flex flex-col justify-center gap-12">
+            <div className="grid grid-cols-1 sm:grid-cols-3 justify-center gap-8 sm:gap-12 px-4 sm:px-18">
                 <Card
                     title=" Zyvol - Sneakers Store"
                     icon={<FaGithub size={50} />}
                     imageSrc="/images/zyvol.png"
-                    tech={["Next Js", "Express Js", "Mongo DB", "Typescript", "Clerk", "Stripe", "Redux Toolkit", "Tailwind CSS", "Cloudinary", "ShadCN"]}
+                    tech={["Next Js", "Express Js", "Mongo DB", "Clerk", "Stripe"]}
                     demoUrl="https://zyvol.vercel.app/"
                     sourceUrl="https://github.com/Navas28/zyvol-frontend.git"
                 />
@@ -26,7 +26,7 @@ export function CanvasRevealEffectDemo() {
                     title="Animazia - Zoo Website"
                     icon={<FaGithub size={50} />}
                     imageSrc="/images/animazia.png"
-                    tech={["React", "Tailwind CSS", "Express JS", "MongoDB", "Swiper", "Stripe"]}
+                    tech={["React", "Express JS", "MongoDB", "Swiper", "Stripe"]}
                     demoUrl="https://frontend-zoo.vercel.app/"
                     sourceUrl="https://github.com/Navas28/Animazia-ZooProject.git"
                 />
@@ -65,7 +65,7 @@ const Card = ({ title, icon, imageSrc, tech = [], demoUrl, sourceUrl, children }
         <div
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
-            className="border border-white/40 group/canvas-card flex items-center justify-center dark:border-white/[0.2] max-w-lg sm:max-w-xl md:max-w-3xl lg:max-w-5xl xl:max-w-7xl w-full mx-auto p-4 relative h-[18rem] sm:h-[22rem] lg:h-[30rem] xl:h-[40rem] overflow-hidden"
+            className="border border-white/40 group/canvas-card flex items-center justify-center dark:border-white/[0.2] max-w-md sm:max-w-xl w-full mx-auto p-4 relative h-[15rem] sm:h-[20rem] overflow-hidden"
         >
             <Icon className="absolute h-6 w-6 -top-3 -left-3 dark:text-white text-white" />
             <Icon className="absolute h-6 w-6 -bottom-3 -left-3 dark:text-white text-white" />
@@ -73,7 +73,7 @@ const Card = ({ title, icon, imageSrc, tech = [], demoUrl, sourceUrl, children }
             <Icon className="absolute h-6 w-6 -bottom-3 -right-3 dark:text-white text-white" />
 
             <div
-                className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
+                className={`absolute inset-0  flex items-center justify-center transition-opacity duration-300 ${
                     hovered ? "opacity-0" : "opacity-100"
                 }`}
             >
@@ -122,7 +122,7 @@ const Card = ({ title, icon, imageSrc, tech = [], demoUrl, sourceUrl, children }
                     transition={{ duration: 0.3 }}
                     className="text-center flex flex-col items-center"
                 >
-                    <div className="p-3 mb-4 transition-all duration-300">
+                    <div className="hidden sm:flex p-3 mb-4 transition-all duration-300">
                         {React.cloneElement(icon, { className: "text-white" })}
                     </div>
 

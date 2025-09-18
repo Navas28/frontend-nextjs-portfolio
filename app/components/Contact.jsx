@@ -92,7 +92,7 @@ export default function Contact() {
     return (
         <div className="flex flex-col justify-center items-center" id="contact">
             <SparklesText text="Contact Me" className="text-white mb-10" />
-            <div className="relative shadow-input mx-auto w-full max-w-md rounded-none bg-black/60 p-4 md:rounded-2xl md:p-8 dark:bg-black overflow-hidden">
+            <div className="relative shadow-input mx-auto w-[90%] sm:w-full max-w-md rounded-md bg-black/60 p-4 md:rounded-2xl md:p-8 dark:bg-black overflow-hidden">
                 <BorderBeam duration={4} size={500} reverse className="from-transparent via-cyan-500 to-transparent"/>
                 <form className="my-8" onSubmit={handleSubmit}>
                     <LabelInputContainer className="mb-4">

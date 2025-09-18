@@ -4,7 +4,6 @@ import Header from "./components/Header";
 import { NavbarDemo } from "@/app/components/Navbar";
 import { Education } from "@/app/components/Education";
 import { ScrollProgress } from "@/app/components/scroll-progress";
-import Skills from "./components/Skills";
 import Particles from "@/app/components/Particles";
 import { SocialLinks } from "@/app/components/SocialLinks";
 import Footer from "./components/Footer";
@@ -12,6 +11,7 @@ import Projects from "./components/Projects";
 import Contact from "@/app/components/Contact";
 import RippleWaveLoader from "./components/ui/RippleWaveLoader";
 import { Suspense } from "react";
+import SkillsShowcase from "./components/Skills";
 
 function PortfolioContent() {
     return (
@@ -25,7 +25,7 @@ function PortfolioContent() {
                     <NavbarDemo />
                     <Header />
                     <Education />
-                    <Skills />
+                    <SkillsShowcase/>
                     <Projects />
                     <Contact />
                     <SocialLinks />
