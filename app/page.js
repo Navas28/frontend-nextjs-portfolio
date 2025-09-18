@@ -6,13 +6,14 @@ import { Education } from "@/app/components/Education";
 import { ScrollProgress } from "@/app/components/scroll-progress";
 import Skills from "./components/Skills";
 import Particles from "@/app/components/Particles";
-import { Pointer } from "@/app/components/CursorPointer";
 import { SocialLinks } from "@/app/components/SocialLinks";
 import Footer from "./components/Footer";
 import Projects from "./components/Projects";
 import Contact from "@/app/components/Contact";
+import RippleWaveLoader from "./components/ui/RippleWaveLoader";
+import { Suspense } from "react";
 
-export default function Home() {
+function PortfolioContent() {
     return (
         <>
             <div className="relative w-full min-h-screen bg-black overflow-hidden">
@@ -20,24 +21,31 @@ export default function Home() {
                     <Particles />
                 </div>
                 <div className="relative">
-                    <Pointer className="hidden md:block">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="12" cy="12" r="8" className="fill-white hidden md:block" />
-                            <circle cx="12" cy="12" r="5" className="fill-black hidden md:block" />
-                        </svg>
-                    </Pointer>
-
                     <ScrollProgress className="top-[0px]" />
                     <NavbarDemo />
                     <Header />
-                    <Education/>
+                    <Education />
                     <Skills />
-                    <Projects/>
-                    <Contact/>
-                    <SocialLinks/>
+                    <Projects />
+                    <Contact />
+                    <SocialLinks />
                     <Footer />
                 </div>
             </div>
         </>
+    );
+}
+
+export default function Home() {
+    return (
+        <Suspense
+            fallback={
+                <div className="h-screen flex items-center justify-center bg-black">
+                    <RippleWaveLoader />
+                </div>
+            }
+        >
+            <PortfolioContent />
+        </Suspense>
     );
 }
