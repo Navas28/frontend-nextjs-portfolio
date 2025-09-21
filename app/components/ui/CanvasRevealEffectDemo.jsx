@@ -6,7 +6,7 @@ import { FaGithub } from "react-icons/fa";
 import { SparklesText } from "./sparkles-text";
 import { BorderBeam } from "./border-beam";
 
-export function  CanvasRevealEffectDemo() {
+export function CanvasRevealEffectDemo() {
     return (
         <div className="mx-auto" id="projects">
             <div className="text-center mb-8 sm:mb-18">
@@ -14,6 +14,14 @@ export function  CanvasRevealEffectDemo() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 justify-center gap-8 sm:gap-12 px-4 sm:px-18">
+                  <Card
+                    title=" KeraFlour - Mill Website"
+                    icon={<FaGithub size={50} />}
+                    imageSrc="/images/Kera.png"
+                    tech={["Next Js", "Express Js", "Mongo DB", "Cloudinary", "Stripe"]}
+                    demoUrl="https://keraflour.vercel.app/"
+                    sourceUrl="https://github.com/Navas28/KeraFlour-frontend.git"
+                />
                 <Card
                     title=" Zyvol - Sneakers Store"
                     icon={<FaGithub size={50} />}
@@ -33,9 +41,9 @@ export function  CanvasRevealEffectDemo() {
                 <Card
                     title="Pixelx - Console Games"
                     icon={<FaGithub size={50} />}
-                    imageSrc="/images/pixelx1.png"
-                    tech={["React", "Tailwind CSS", "GSAP"]}
-                    demoUrl="https://staging.d1hd5ui2h3a3im.amplifyapp.com/"
+                    imageSrc="/images/react-game-home(lite).png"
+                    tech={["React", "Tailwind CSS", "RAWG API"]}
+                    demoUrl="https://game-website-react.vercel.app/"
                     sourceUrl="https://github.com/Navas28/Game-website-react.git"
                 />
                 <Card
@@ -53,6 +61,46 @@ export function  CanvasRevealEffectDemo() {
                     tech={["HTML", "CSS", "JavaScript"]}
                     demoUrl="https://navas28.github.io/milk-product-website/"
                     sourceUrl="https://github.com/Navas28/milk-product-website.git"
+                />
+                <Card
+                    title="Game Verse - Game Sales"
+                    icon={<FaGithub size={50} />}
+                    imageSrc="/images/gameverse-1.png"
+                    tech={["HTML", "CSS"]}
+                    demoUrl="https://navas28.github.io/Game-website"
+                    sourceUrl="https://github.com/Navas28/Game-website.git"
+                />
+                <Card
+                    title="Fresh Cart E-Commerce"
+                    icon={<FaGithub size={50} />}
+                    imageSrc="/images/fresh-1.png"
+                    tech={["HTML", "CSS", "Bootstrap"]}
+                    demoUrl="https://navas28.github.io/Fresh-cart-/"
+                    sourceUrl="https://github.com/Navas28/Fresh-cart-.git"
+                />
+                <Card
+                    title="Binge Nest - Movies & Series"
+                    icon={<FaGithub size={50} />}
+                    imageSrc="/images/series-1.png"
+                    tech={["HTML", "CSS", "JavaScript"]}
+                    demoUrl="https://navas28.github.io/Series-Movie-Website/#"
+                    sourceUrl="https://github.com/Navas28/Series-Movie-Website.git"
+                />
+                   <Card
+                    title="Indian Tandoor - Restuarent"
+                    icon={<FaGithub size={50} />}
+                    imageSrc="/images/res-1.png"
+                    tech={["HTML", "CSS"]}
+                    demoUrl="https://navas28.github.io/Restuarent-webpage/"
+                    sourceUrl="https://github.com/Navas28/Restuarent-webpage.git"
+                />
+                   <Card
+                    title="Horizon Bliss - Restuarent"
+                    icon={<FaGithub size={50} />}
+                    imageSrc="/images/hotel-1.png"
+                    tech={["HTML", "CSS"]}
+                    demoUrl="https://navas28.github.io/Hotel-website/"
+                    sourceUrl="https://github.com/Navas28/Hotel-website.git"
                 />
             </div>
         </div>
