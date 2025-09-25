@@ -15,6 +15,13 @@ export function CanvasRevealEffectDemo() {
 
             <div className="grid grid-cols-1 sm:grid-cols-3 justify-center gap-8 sm:gap-12 px-4 sm:px-18">
                   <Card
+                    title="Well Clean - Freelance [SEO]"
+                    icon={<FaGithub size={50} />}
+                    imageSrc="/images/well-clean.png"
+                    tech={["Next Js", "Tailwind Css", "Cloudinary"]}
+                    demoUrl="https://www.wellcleancalicut.com"
+                />
+                  <Card
                     title=" KeraFlour - Mill Website"
                     icon={<FaGithub size={50} />}
                     imageSrc="/images/Kera.png"
@@ -23,7 +30,7 @@ export function CanvasRevealEffectDemo() {
                     sourceUrl="https://github.com/Navas28/KeraFlour-frontend.git"
                 />
                 <Card
-                    title=" Zyvol - Sneakers Store"
+                    title="Zyvol - Sneakers Store"
                     icon={<FaGithub size={50} />}
                     imageSrc="/images/zyvol.png"
                     tech={["Next Js", "Express Js", "Mongo DB", "Clerk", "Stripe"]}
