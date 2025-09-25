@@ -14,15 +14,15 @@ export function CanvasRevealEffectDemo() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 justify-center gap-8 sm:gap-12 px-4 sm:px-18">
-                  <Card
+                <Card
                     title="Well Clean - Freelance [SEO]"
                     icon={<FaGithub size={50} />}
                     imageSrc="/images/well-clean.png"
                     tech={["Next Js", "Tailwind Css", "Cloudinary"]}
                     demoUrl="https://www.wellcleancalicut.com"
                 />
-                  <Card
-                    title=" KeraFlour - Mill Website"
+                <Card
+                    title="KeraFlour - Mill Website"
                     icon={<FaGithub size={50} />}
                     imageSrc="/images/Kera.png"
                     tech={["Next Js", "Express Js", "Mongo DB", "Cloudinary", "Stripe"]}
@@ -93,7 +93,7 @@ export function CanvasRevealEffectDemo() {
                     demoUrl="https://navas28.github.io/Series-Movie-Website/#"
                     sourceUrl="https://github.com/Navas28/Series-Movie-Website.git"
                 />
-                   <Card
+                <Card
                     title="Indian Tandoor - Restuarent"
                     icon={<FaGithub size={50} />}
                     imageSrc="/images/res-1.png"
@@ -101,7 +101,7 @@ export function CanvasRevealEffectDemo() {
                     demoUrl="https://navas28.github.io/Restuarent-webpage/"
                     sourceUrl="https://github.com/Navas28/Restuarent-webpage.git"
                 />
-                   <Card
+                <Card
                     title="Horizon Bliss - Restuarent"
                     icon={<FaGithub size={50} />}
                     imageSrc="/images/hotel-1.png"
@@ -132,6 +132,33 @@ const Card = ({ title, icon, imageSrc, tech = [], demoUrl, sourceUrl, children }
                     hovered ? "opacity-0" : "opacity-100"
                 }`}
             >
+                <div className="absolute top-4 left-4 z-10 flex items-center gap-2">
+                    <div
+                        className={`w-3 h-3 rounded-full ${
+                            title.includes("Freelance") || title.includes("[SEO]")
+                                ? "bg-green-400 shadow-[0_0_10px_rgba(34,197,94,0.8)]"
+                                : title.includes("KeraFlour") || title.includes("Zyvol") || title.includes("Animazia")
+                                ? "bg-cyan-400 shadow-[0_0_10px_rgba(6,182,212,0.8)]"
+                                : "bg-amber-400 shadow-[0_0_10px_rgba(245,158,11,0.8)]"
+                        } animate-pulse`}
+                    ></div>
+                    <span
+                        className={`text-xs font-semibold uppercase tracking-wider ${
+                            title.includes("Freelance") || title.includes("[SEO]")
+                                ? "text-green-400"
+                                : title.includes("KeraFlour") || title.includes("Zyvol") || title.includes("Animazia")
+                                ? "text-cyan-400"
+                                : "text-amber-400"
+                        }`}
+                    >
+                        {title.includes("Freelance") || title.includes("[SEO]")
+                            ? "LIVE"
+                            : title.includes("KeraFlour") || title.includes("Zyvol") || title.includes("Animazia")
+                            ? "MERN"
+                            : "UI"}
+                    </span>
+                </div>
+
                 <div className="p-8 w-full h-full flex items-center justify-center">
                     <Image
                         src={imageSrc}
