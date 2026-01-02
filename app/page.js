@@ -12,6 +12,7 @@ import Contact from "@/app/components/Contact";
 import RippleWaveLoader from "./components/ui/RippleWaveLoader";
 import { Suspense } from "react";
 import SkillsShowcase from "./components/Skills";
+import Experience from "./components/Experience";
 
 function PortfolioContent() {
     return (
@@ -24,6 +25,7 @@ function PortfolioContent() {
                     <ScrollProgress className="top-[0px]" />
                     <NavbarDemo />
                     <Header />
+                    <Experience/>
                     <Education />
                     <SkillsShowcase/>
                     <Projects />

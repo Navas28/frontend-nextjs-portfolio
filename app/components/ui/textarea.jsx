@@ -35,7 +35,7 @@ const Textarea = React.forwardRef(({ className, ...props }, ref) => {
       <textarea
         ref={ref}
         className={cn(
-          `shadow-input dark:placeholder-text-neutral-600 flex w-full rounded-md border border-white/[0.3] hover:border-none bg-black px-3 py-2 text-sm text-white transition duration-400 group-hover/input:shadow-none placeholder:text-white/60 focus-visible:ring-[2px] focus-visible:ring-neutral-400 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 dark:bg-zinc-800 dark:text-white dark:shadow-[0px_0px_1px_1px_#404040] dark:focus-visible:ring-neutral-600 cursor-none`,
+          `shadow-input dark:placeholder-text-neutral-600 flex w-full rounded-md border border-white/[0.3] hover:border-none bg-black px-3 py-2 text-sm text-white transition duration-400 group-hover/input:shadow-none placeholder:text-white/60 focus-visible:ring-[2px] focus-visible:ring-neutral-400 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 dark:bg-zinc-800 dark:text-white dark:shadow-[0px_0px_1px_1px_#404040] dark:focus-visible:ring-neutral-600`,
           className
         )}
         {...props}

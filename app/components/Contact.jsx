@@ -43,7 +43,16 @@ export default function Contact() {
         setResponseType("");
 
         try {
-            const res = await axios.post("https://backend-nextjs-portfolio-2.onrender.com/api/contact", formData);
+            // Using the Environment Variable here
+            const res = await axios.post("https://api.web3forms.com/submit", {
+                access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
+                name: name,
+                email: email,
+                phone: phone,
+                subject: subject,
+                message: message,
+            });
+
             if (res.data.success) {
                 setResponseType("success");
                 setResponseMsg("Message sent successfully!");
@@ -54,46 +63,39 @@ export default function Contact() {
                     subject: "",
                     message: "",
                 });
-                setTimeout(() => {
-                    setResponseMsg("");
-                    setResponseType("");
-                }, 3000);
             } else {
                 setResponseType("error");
                 setResponseMsg("Failed to send message. Try again");
-                setTimeout(() => {
-                    setResponseMsg("");
-                    setResponseType("");
-                }, 3000);
             }
         } catch (err) {
             console.error(err);
             setResponseType("error");
-            setResponseMsg("Failed to send message. Try again.");
+            setResponseMsg("Something went wrong. Please try again later.");
+        } finally {
+            setLoading(false);
+
             setTimeout(() => {
                 setResponseMsg("");
                 setResponseType("");
             }, 3000);
         }
-
-        setLoading(false);
     };
 
     useEffect(() => {
-        if(responseMsg){
+        if (responseMsg) {
             const timer = setTimeout(() => {
-                setResponseMsg("")
-                setResponseType("")
+                setResponseMsg("");
+                setResponseType("");
             }, 3000);
-            return () => clearTimeout(timer)
+            return () => clearTimeout(timer);
         }
-    }, [responseMsg])
+    }, [responseMsg]);
 
     return (
         <div className="flex flex-col justify-center items-center mt-20" id="contact">
             <SparklesText text="Contact Me" className="text-white mb-10" />
             <div className="relative shadow-input mx-auto w-[90%] sm:w-full max-w-md rounded-md bg-black/60 p-4 md:rounded-2xl md:p-8 dark:bg-black overflow-hidden">
-                <BorderBeam duration={4} size={500} reverse className="from-transparent via-cyan-500 to-transparent"/>
+                <BorderBeam duration={4} size={500} reverse className="from-transparent via-cyan-500 to-transparent" />
                 <form className="my-8" onSubmit={handleSubmit}>
                     <LabelInputContainer className="mb-4">
                         <Label htmlFor="name">Name</Label>
@@ -152,7 +154,7 @@ export default function Contact() {
                     </LabelInputContainer>
 
                     <button
-                        className="group/btn relative block h-10 w-full rounded-md bg-gradient-to-b cursor-none from-black to-white/20 font-medium text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:bg-zinc-800 dark:from-zinc-900 dark:to-zinc-900 dark:shadow-[0px_1px_0px_0px_#27272a_inset,0px_-1px_0px_0px_#27272a_inset]"
+                        className="group/btn relative block h-10 w-full rounded-md bg-gradient-to-b  from-black to-white/20 font-medium text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:bg-zinc-800 dark:from-zinc-900 dark:to-zinc-900 dark:shadow-[0px_1px_0px_0px_#27272a_inset,0px_-1px_0px_0px_#27272a_inset]"
                         type="submit"
                         disabled={loading}
                     >

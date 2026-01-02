@@ -20,6 +20,10 @@ export function NavbarDemo() {
             link: "#home",
         },
         {
+            name: "Experience",
+            link: "#experience",
+        },
+        {
             name: "Education",
             link: "#education",
         },

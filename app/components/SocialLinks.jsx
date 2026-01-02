@@ -6,24 +6,24 @@ import { Dock, DockIcon } from "./ui/dock";
 
 export function SocialLinks() {
     return (
-        <div className="relative cursor-none">
+        <div className="relative">
             <Dock direction="middle">
                 <DockIcon>
                     <a href="https://github.com/Navas28" target="_blank" rel="noopener noreferrer">
-                        <Icons.gitHub className="size-6 text-white cursor-none" />
+                        <Icons.gitHub className="size-6 text-white" />
                     </a>
                 </DockIcon>
                 <a href="https://www.linkedin.com/in/navas-m/" target="_blank" rel="noopener noreferrer">
-                    <Icons.linkedIn className="size-6 text-white cursor-none" />
+                    <Icons.linkedIn className="size-6 text-white " />
                 </a>
                 <DockIcon>
                     <a href="https://www.instagram.com/_n_avas/" target="_blank" rel="noopener noreferrer">
-                        <Icons.instagram className="size-6 text-white cursor-none" />
+                        <Icons.instagram className="size-6 text-white" />
                     </a>
                 </DockIcon>
                 <DockIcon>
                     <a href="mailto:navasmhd79@gmail.com">
-                        <Icons.email className="size-6 text-white cursor-none" />
+                        <Icons.email className="size-6 text-white " />
                     </a>
                 </DockIcon>
             </Dock>
