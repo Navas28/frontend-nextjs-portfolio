@@ -3,236 +3,196 @@ import React from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
+import { HiArrowUpRight } from "react-icons/hi2";
+import {
+  SiNextdotjs,
+  SiTailwindcss,
+  SiExpress,
+  SiMongodb,
+  SiStripe,
+  SiClerk,
+  SiReact,
+  SiSwiper,
+  SiHtml5,
+  SiCss3,
+  SiJavascript,
+  SiCloudinary,
+} from "react-icons/si";
+import Link from "next/link";
 import { SparklesText } from "./sparkles-text";
-import { BorderBeam } from "./border-beam";
+import { PROJECTS } from "@/data/projects";
+
+const techIcons = {
+  "next js": <SiNextdotjs />,
+  "tailwind css": <SiTailwindcss />,
+  cloudinary: <SiCloudinary />,
+  "express js": <SiExpress />,
+  "express js": <SiExpress />,
+  "mongo db": <SiMongodb />,
+  mongodb: <SiMongodb />,
+  stripe: <SiStripe />,
+  clerk: <SiClerk />,
+  react: <SiReact />,
+  swiper: <SiSwiper />,
+  html: <SiHtml5 />,
+  css: <SiCss3 />,
+  javascript: <SiJavascript />,
+};
+
+// ─── Image Preview Zone ───────────────────────────────────────────────────────
+// Handles both desktop-only and desktop+mobile gracefully in a fixed-height box
+
+const PreviewZone = ({ images }) => {
+  const desktop = images.find((i) => i.type === "desktop");
+
+  return (
+    <div className="relative w-full h-72 flex items-end justify-center overflow-visible px-4 pb-0">
+      {/* Desktop frame */}
+      {desktop && (
+        <div
+          className="relative flex flex-col rounded-t-lg overflow-hidden border border-white/5 shadow-2xl shadow-black/60"
+          style={{ width: "100%", flexShrink: 0 }}
+        >
+          {/* Browser bar */}
+          <div className="flex items-center gap-1.5 px-3 py-2 border-b border-white/[0.04] flex-shrink-0">
+            <div className="w-2 h-2 rounded-full bg-white/10" />
+            <div className="w-2 h-2 rounded-full bg-white/10" />
+            <div className="w-2 h-2 rounded-full bg-white/10" />
+            <div className="ml-2 flex-1 h-2.5 rounded-full bg-white/5" />
+          </div>
+          <div className="relative w-full" style={{ height: "250px" }}>
+            <Image
+              src={desktop.src}
+              alt="desktop preview"
+              fill
+              className="object-cover object-top"
+              priority
+            />
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+// ─── Card ─────────────────────────────────────────────────────────────────────
+
+const Card = ({ project, index }) => {
+  const [hovered, setHovered] = React.useState(false);
+
+  return (
+    <Link href={`/projects/${project.id}`}>
+      <motion.div
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        initial={{ opacity: 0, y: 28 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{
+          duration: 0.5,
+          delay: index * 0.07,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        whileHover={{ y: -4 }}
+        className="flex flex-col rounded-xl overflow-hidden border border-white/[0.08] bg-[#0e0e0e]
+          transition-all duration-300 hover:border-white/[0.16] cursor-pointer h-full"
+        style={{
+          boxShadow: hovered
+            ? "0 20px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.06)"
+            : "0 4px 20px rgba(0,0,0,0.4)",
+        }}
+      >
+        {/* ── Image Zone ── */}
+        <div className="w-full bg-[#0a0a0a] pt-5 border-b border-white/[0.06]">
+          <PreviewZone images={project.images} />
+        </div>
+
+        {/* ── Info Zone ── */}
+        <div className="flex flex-col flex-1 px-5 py-4 gap-3">
+          <div className="flex items-start justify-between gap-2">
+            <div>
+              <div className="flex items-center gap-2 mb-1.5">
+                <span className="text-[11px] font-bold text-white/50 tracking-[0.15em] uppercase border-l-2 border-white/20 pl-2">
+                  {project.subtitle}
+                </span>
+              </div>
+              <h3 className="text-white text-xl font-bold tracking-tight leading-tight">
+                {project.title}
+              </h3>
+            </div>
+          </div>
+
+          {/* Tech icons */}
+          <div className="flex items-center gap-4 py-1">
+            {project.tech.map((t, i) => {
+              const normalized = t.toLowerCase();
+              const icon =
+                techIcons[normalized] ||
+                techIcons[normalized.replace(/\s/g, "")];
+              return (
+                <div
+                  key={i}
+                  className="text-2xl text-white/30 hover:text-white/70 transition-all duration-300 hover:scale-110"
+                >
+                  {icon || <span className="text-[9px] font-bold">{t}</span>}
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Divider */}
+          <div className="h-px bg-white/[0.05]" />
+
+          {/* Footer */}
+          <div className="flex items-center justify-between gap-3">
+            <div className="flex items-center gap-2">
+              <span className="text-[10px] text-white/40 uppercase tracking-widest font-bold">
+                Details
+              </span>
+              <HiArrowUpRight size={10} className="text-white/30" />
+            </div>
+
+            <motion.div
+              animate={{ x: hovered ? 4 : 0 }}
+              className="text-white/20"
+            >
+              <HiArrowUpRight size={14} />
+            </motion.div>
+          </div>
+        </div>
+      </motion.div>
+    </Link>
+  );
+};
+
+// ─── Main Export ──────────────────────────────────────────────────────────────
 
 export function CanvasRevealEffectDemo() {
   return (
-    <div className="mx-auto" id="projects">
-      <div className="text-center mb-8 sm:mb-18">
+    <section className="mx-auto px-4 sm:px-8 lg:px-12" id="projects">
+      <div className="text-center mb-12 sm:mb-16">
         <SparklesText text="Top Projects" className="text-white" />
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 justify-center gap-8 sm:gap-12 px-4 sm:px-18">
-        <Card
-          title="Well Clean - Freelance [SEO]"
-          icon={<FaGithub size={50} />}
-          imageSrc="/images/well-clean.png"
-          tech={["Next Js", "Tailwind Css", "Cloudinary"]}
-          demoUrl="https://www.wellcleancalicut.com"
-        />
-        <Card
-          title="KeraFlour - Mill Website & App"
-          icon={<FaGithub size={50} />}
-          imageSrc="/images/Kera.png"
-          tech={["Next Js", "Express Js", "Mongo DB", "Cloudinary", "Stripe"]}
-          demoUrl="https://keraflour.vercel.app/"
-          sourceUrl="https://github.com/Navas28/KeraFlour-frontend.git"
-        />
-        <Card
-          title="Zyvol - Sneakers Store"
-          icon={<FaGithub size={50} />}
-          imageSrc="/images/zyvol.png"
-          tech={["Next Js", "Express Js", "Mongo DB", "Clerk", "Stripe"]}
-          demoUrl="https://zyvol.vercel.app/"
-          sourceUrl="https://github.com/Navas28/zyvol-frontend.git"
-        />
-        <Card
-          title="Animazia - Zoo Website"
-          icon={<FaGithub size={50} />}
-          imageSrc="/images/animazia.png"
-          tech={["React", "Express JS", "MongoDB", "Swiper", "Stripe"]}
-          demoUrl="https://frontend-zoo.vercel.app/"
-          sourceUrl="https://github.com/Navas28/Animazia-ZooProject.git"
-        />
-        <Card
-          title="Golden Dairy - Dairy Products"
-          icon={<FaGithub size={50} />}
-          imageSrc="/images/dairy1.png"
-          tech={["HTML", "CSS", "JavaScript"]}
-          demoUrl="https://navas28.github.io/milk-product-website/"
-          sourceUrl="https://github.com/Navas28/milk-product-website.git"
-        />
-        <Card
-          title="Binge Nest - Movies & Series"
-          icon={<FaGithub size={50} />}
-          imageSrc="/images/series-1.png"
-          tech={["HTML", "CSS", "JavaScript"]}
-          demoUrl="https://navas28.github.io/Series-Movie-Website/#"
-          sourceUrl="https://github.com/Navas28/Series-Movie-Website.git"
-        />
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+        {PROJECTS.map((project, i) => (
+          <Card key={project.title} project={project} index={i} />
+        ))}
       </div>
-    </div>
+    </section>
   );
 }
 
-const Card = ({
-  title,
-  icon,
-  imageSrc,
-  tech = [],
-  demoUrl,
-  sourceUrl,
-  children,
-}) => {
-  const [hovered, setHovered] = React.useState(false);
-  return (
-    <div
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      className="border border-white/40 group/canvas-card flex items-center justify-center dark:border-white/[0.2] max-w-md sm:max-w-xl w-full mx-auto p-4 relative h-[15rem] sm:h-[20rem] overflow-hidden"
-    >
-      <Icon className="absolute h-6 w-6 -top-3 -left-3 dark:text-white text-white" />
-      <Icon className="absolute h-6 w-6 -bottom-3 -left-3 dark:text-white text-white" />
-      <Icon className="absolute h-6 w-6 -top-3 -right-3 dark:text-white text-white" />
-      <Icon className="absolute h-6 w-6 -bottom-3 -right-3 dark:text-white text-white" />
-
-      <div
-        className={`absolute inset-0  flex items-center justify-center transition-opacity duration-300 ${
-          hovered ? "opacity-0" : "opacity-100"
-        }`}
-      >
-        <div className="absolute top-4 left-4 z-10 flex items-center gap-2">
-          <div
-            className={`w-3 h-3 rounded-full ${
-              title.includes("Freelance") || title.includes("[SEO]")
-                ? "bg-green-400 shadow-[0_0_10px_rgba(34,197,94,0.8)]"
-                : title.includes("KeraFlour") ||
-                    title.includes("Zyvol") ||
-                    title.includes("Animazia")
-                  ? "bg-cyan-400 shadow-[0_0_10px_rgba(6,182,212,0.8)]"
-                  : "bg-amber-400 shadow-[0_0_10px_rgba(245,158,11,0.8)]"
-            } animate-pulse`}
-          ></div>
-          <span
-            className={`text-xs font-semibold uppercase tracking-wider ${
-              title.includes("Freelance") || title.includes("[SEO]")
-                ? "text-green-400"
-                : title.includes("KeraFlour") ||
-                    title.includes("Zyvol") ||
-                    title.includes("Animazia")
-                  ? "text-cyan-400"
-                  : "text-amber-400"
-            }`}
-          >
-            {title.includes("Freelance") || title.includes("[SEO]")
-              ? "LIVE"
-              : title.includes("KeraFlour") ||
-                  title.includes("Zyvol") ||
-                  title.includes("Animazia")
-                ? "MERN"
-                : "UI"}
-          </span>
-        </div>
-
-        <div className="p-8 w-full h-full flex items-center justify-center">
-          <Image
-            src={imageSrc}
-            alt={title}
-            width={1200}
-            height={100}
-            className="object-cover max-w-full max-h-full"
-            priority
-          />
-        </div>
-      </div>
-
-      <AnimatePresence>
-        {hovered && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="h-full w-full absolute inset-0 bg-black/20"
-          >
-            <BorderBeam
-              size={880}
-              duration={6}
-              className="from-transparent via-pink-500 to-transparent"
-            />
-            <BorderBeam
-              size={880}
-              duration={6}
-              delay={3}
-              className="from-transparent via-cyan-500 to-transparent"
-            />
-
-            {children}
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      <div
-        className={`relative z-20 flex flex-col items-center justify-center h-full w-full transition-all duration-300 ${
-          !hovered ? "opacity-0" : "opacity-100"
-        }`}
-      >
-        <motion.div
-          initial={{ y: 20, opacity: 0 }}
-          animate={hovered ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
-          transition={{ duration: 0.3 }}
-          className="text-center flex flex-col items-center"
-        >
-          <div className="hidden sm:flex p-3 mb-4 transition-all duration-300">
-            {React.cloneElement(icon, { className: "text-white" })}
-          </div>
-
-          <h2 className="font-para text-lg  sm:text-2xl font-bold text-white mb-3 px-4">
-            {title}
-          </h2>
-
-          <div className="flex flex-wrap justify-center gap-2 max-w-md mb-6">
-            {tech.map((tool, idx) => (
-              <span
-                key={idx}
-                className="bg-white/10 text-white text-xs px-3 py-1 rounded-sm  border border-white/10"
-              >
-                {tool}
-              </span>
-            ))}
-          </div>
-
-          <div className="flex gap-4 mt-2">
-            {demoUrl && (
-              <a
-                href={demoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="cursor-none px-2  sm:px-5 sm:py-2 flex gap-3 font-medium items-center text-md rounded-md border border-black/50 bg-white text-black hover:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] transition duration-200"
-              >
-                View Demo
-              </a>
-            )}
-            {sourceUrl && (
-              <a
-                href={sourceUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="cursor-none px-2 sm:px-4 sm:py-1 flex gap-3 font-medium items-center text-md rounded-md border border-black/50 bg-white text-black hover:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] transition duration-200"
-              >
-                Source Code
-              </a>
-            )}
-          </div>
-        </motion.div>
-      </div>
-    </div>
-  );
-};
-
-export const Icon = ({ className, ...rest }) => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth="1.5"
-      stroke="currentColor"
-      className={className}
-      {...rest}
-    >
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" />
-    </svg>
-  );
-};
+export const Icon = ({ className, ...rest }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    strokeWidth="1.5"
+    stroke="currentColor"
+    className={className}
+    {...rest}
+  >
+    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" />
+  </svg>
+);
