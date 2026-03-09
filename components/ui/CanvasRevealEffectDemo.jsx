@@ -22,7 +22,7 @@ export function CanvasRevealEffectDemo() {
           demoUrl="https://www.wellcleancalicut.com"
         />
         <Card
-          title="KeraFlour - Mill Website"
+          title="KeraFlour - Mill Website & App"
           icon={<FaGithub size={50} />}
           imageSrc="/images/Kera.png"
           tech={["Next Js", "Express Js", "Mongo DB", "Cloudinary", "Stripe"]}
@@ -46,22 +46,6 @@ export function CanvasRevealEffectDemo() {
           sourceUrl="https://github.com/Navas28/Animazia-ZooProject.git"
         />
         <Card
-          title="Pixelx - Console Games"
-          icon={<FaGithub size={50} />}
-          imageSrc="/images/react-game-home(lite).png"
-          tech={["React", "Tailwind CSS", "RAWG API"]}
-          demoUrl="https://game-website-react.vercel.app/"
-          sourceUrl="https://github.com/Navas28/Game-website-react.git"
-        />
-        <Card
-          title="Well Clean - Cleaning Service"
-          icon={<FaGithub size={50} />}
-          imageSrc="/images/wellclean1.png"
-          tech={["HTML", "CSS", "JavaScript"]}
-          demoUrl="https://navas28.github.io/well-clean/"
-          sourceUrl="https://github.com/Navas28/well-clean.git"
-        />
-        <Card
           title="Golden Dairy - Dairy Products"
           icon={<FaGithub size={50} />}
           imageSrc="/images/dairy1.png"
@@ -70,44 +54,12 @@ export function CanvasRevealEffectDemo() {
           sourceUrl="https://github.com/Navas28/milk-product-website.git"
         />
         <Card
-          title="Game Verse - Game Sales"
-          icon={<FaGithub size={50} />}
-          imageSrc="/images/gameverse-1.png"
-          tech={["HTML", "CSS"]}
-          demoUrl="https://navas28.github.io/Game-website"
-          sourceUrl="https://github.com/Navas28/Game-website.git"
-        />
-        <Card
-          title="Fresh Cart E-Commerce"
-          icon={<FaGithub size={50} />}
-          imageSrc="/images/fresh-1.png"
-          tech={["HTML", "CSS", "Bootstrap"]}
-          demoUrl="https://navas28.github.io/Fresh-cart-/"
-          sourceUrl="https://github.com/Navas28/Fresh-cart-.git"
-        />
-        <Card
           title="Binge Nest - Movies & Series"
           icon={<FaGithub size={50} />}
           imageSrc="/images/series-1.png"
           tech={["HTML", "CSS", "JavaScript"]}
           demoUrl="https://navas28.github.io/Series-Movie-Website/#"
           sourceUrl="https://github.com/Navas28/Series-Movie-Website.git"
-        />
-        <Card
-          title="Indian Tandoor - Restaurant"
-          icon={<FaGithub size={50} />}
-          imageSrc="/images/res-1.png"
-          tech={["HTML", "CSS"]}
-          demoUrl="https://navas28.github.io/Restaurant-webpage/"
-          sourceUrl="https://github.com/Navas28/Restaurant-webpage.git"
-        />
-        <Card
-          title="Horizon Bliss - Restaurant"
-          icon={<FaGithub size={50} />}
-          imageSrc="/images/hotel-1.png"
-          tech={["HTML", "CSS"]}
-          demoUrl="https://navas28.github.io/Hotel-website/"
-          sourceUrl="https://github.com/Navas28/Hotel-website.git"
         />
       </div>
     </div>
