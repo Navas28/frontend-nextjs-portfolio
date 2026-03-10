@@ -43,10 +43,23 @@ export const PROJECTS = [
     subtitle: "Mill Website & App",
     badge: "MERN",
     description:
-      "End-to-end e-commerce platform for a Kerala flour mill. Features product catalogue, order management, Stripe payments, and a mobile-first shopping experience.",
-    tech: ["Next Js", "Express Js", "Mongo DB", "Cloudinary", "Stripe"],
+      "KeraFlour is designed to bridge the gap between traditional milling operations and modern digital convenience. The system provides a real-time pulse of the mill's operations for customers while giving administrators powerful tools to manage pricing, inventory, and machine status.",
+    tech: ["Next Js", "Express Js", "Mongo DB", "Cloudinary","NativeWind", "React Native"],
     demoUrl: "https://keraflour.vercel.app/",
-    sourceUrl: "https://github.com/Navas28/KeraFlour-frontend.git",
+    repositories: [
+      {
+        label: "Admin Website",
+        url: "https://github.com/Navas28/KeraFlour-admin-website.git",
+      },
+      {
+        label: "Backend",
+        url: "https://github.com/Navas28/KeraFlour-backend.git",
+      },
+      {
+        label: "Mobile App",
+        url: "https://github.com/Navas28/keraflour-mobile-app.git",
+      },
+    ],
     images: [
       {
         src: "https://res.cloudinary.com/dmwgohvub/image/upload/v1773055531/KeraFlour-Mill-Admin-03-09-2026_04_52_PM_nnfk8h.png",
@@ -59,6 +72,22 @@ export const PROJECTS = [
       {
         src: "https://res.cloudinary.com/dmwgohvub/image/upload/v1773055528/KeraFlour-Mill-Admin-03-09-2026_04_53_PM_g6qald.png",
         type: "desktop",
+      },
+      {
+        src: "https://res.cloudinary.com/dmwgohvub/image/upload/v1773112962/WhatsApp_Image_2026-03-10_at_8.51.55_AM_3_e3ixre.jpg",
+        type: "mobile",
+      },
+      {
+        src: "https://res.cloudinary.com/dmwgohvub/image/upload/v1773112962/WhatsApp_Image_2026-03-10_at_8.51.55_AM_bf6uyv.jpg",
+        type: "mobile",
+      },
+      {
+        src: "https://res.cloudinary.com/dmwgohvub/image/upload/v1773112962/WhatsApp_Image_2026-03-10_at_8.51.55_AM_2_mfcsoq.jpg",
+        type: "mobile",
+      },
+      {
+        src: "https://res.cloudinary.com/dmwgohvub/image/upload/v1773112962/WhatsApp_Image_2026-03-10_at_8.51.55_AM_1_ajtipr.jpg",
+        type: "mobile",
       },
     ],
     webVideoUrl: null,
@@ -78,9 +107,18 @@ export const PROJECTS = [
     badge: "MERN",
     description:
       "A sleek sneaker e-commerce store with Clerk authentication, product filtering, cart management, and Stripe checkout. Built for performance and a premium feel.",
-    tech: ["Next Js", "Express Js", "Mongo DB", "Clerk", "Stripe"],
+    tech: ["Next Js", "Express Js", "Mongo DB", "Clerk", "Stripe", "Tailwind CSS"],
     demoUrl: "https://zyvol.vercel.app/",
-    sourceUrl: "https://github.com/Navas28/zyvol-frontend.git",
+    repositories: [
+      {
+        label: "Frontend",
+        url: "https://github.com/Navas28/zyvol-frontend.git",
+      },
+      {
+        label: "Backend",
+        url: "https://github.com/Navas28/zyvol-backend.git",
+      },
+    ],
     images: [
       {
         src: "https://res.cloudinary.com/dmwgohvub/image/upload/v1773052689/Zyvol-03-09-2026_03_59_PM_c3atxy.png",
@@ -120,10 +158,19 @@ export const PROJECTS = [
     subtitle: "Zoo Website",
     badge: "MERN",
     description:
-      "An interactive zoo experience website with Swiper-powered animal galleries, ticket booking, and Stripe-integrated donations. Designed for engagement and accessibility.",
-    tech: ["React", "Express JS", "MongoDB", "Swiper", "Stripe"],
+      "Animazia is a modern, immersive web application designed for wildlife enthusiasts and zoo visitors. It provides a seamless experience for exploring animal species, booking tickets, joining volunteer programs, and supporting conservation efforts.",
+    tech: ["React", "Tailwind CSS", "Express JS", "MongoDB", "Swiper", "Stripe"],
     demoUrl: "https://frontend-zoo.vercel.app/",
-    sourceUrl: "https://github.com/Navas28/Animazia-ZooProject.git",
+    repositories: [
+      {
+        label: "Frontend",
+        url: "https://github.com/Navas28/animazia-frontend.git",
+      },
+      {
+        label: "Backend",
+        url: "https://github.com/Navas28/animazia-backend.git",
+      },
+    ],
     images: [
       {
         src: "https://res.cloudinary.com/dmwgohvub/image/upload/v1773050929/Animazia-03-09-2026_03_38_PM_yccw4l.png",
@@ -186,7 +233,12 @@ export const PROJECTS = [
       "A clean, responsive landing site for a dairy brand. Showcases product range with custom CSS animations and a smooth scrolling experience — no frameworks needed.",
     tech: ["HTML", "CSS", "JavaScript"],
     demoUrl: "https://navas28.github.io/milk-product-website/",
-    sourceUrl: "https://github.com/Navas28/milk-product-website.git",
+    repositories: [
+      {
+        label: "Source Code",
+        url: "https://github.com/Navas28/milk-product-website.git",
+      },
+    ],
     images: [
       {
         src: "https://res.cloudinary.com/dmwgohvub/image/upload/v1773053900/Document-03-09-2026_04_19_PM_pmd8gq.png",
@@ -231,5 +283,62 @@ export const PROJECTS = [
     ],
     webVideoUrl: null,
     mobileVideoUrl: null,
+  },
+  {
+    id: "expense-tracker",
+    title: "Coin Vault - Expense Tracker",
+    subtitle: "Mobile App · Coin Vault",
+    badge: "App",
+    description:
+      "Coin Vault is a premium, privacy-focused personal finance tracker built with React Native and Expo. It allows users to manage their income and expenses entirely on their device, ensuring data ownership and security.",
+    tech: ["React Native", "NativeWind", "Expo"],
+    demoUrl: null,
+    repositories: [
+      {
+        label: "Mobile App",
+        url: "https://github.com/Navas28/Coin-Vault-Expense-App.git",
+      },
+    ],
+    images: [
+      {
+        src: "https://res.cloudinary.com/dmwgohvub/image/upload/v1773063274/WhatsApp_Image_2026-03-08_at_5.58.49_PM_k2rh5n.jpg",
+        type: "mobile",
+      },
+      {
+        src: "https://res.cloudinary.com/dmwgohvub/image/upload/v1773063278/WhatsApp_Image_2026-03-08_at_5.58.47_PM_ufgcxu.jpg",
+        type: "mobile",
+      },
+      {
+        src: "https://res.cloudinary.com/dmwgohvub/image/upload/v1773063284/WhatsApp_Image_2026-03-08_at_5.58.48_PM_3_rctbs6.jpg",
+        type: "mobile",
+      },
+      {
+        src: "https://res.cloudinary.com/dmwgohvub/image/upload/v1773063281/WhatsApp_Image_2026-03-08_at_5.58.48_PM_2_t9j0mo.jpg",
+        type: "mobile",
+      },
+      {
+        src: "https://res.cloudinary.com/dmwgohvub/image/upload/v1773063285/WhatsApp_Image_2026-03-08_at_5.58.48_PM_a5bhhr.jpg",
+        type: "mobile",
+      },
+      {
+        src: "https://res.cloudinary.com/dmwgohvub/image/upload/v1773063279/WhatsApp_Image_2026-03-08_at_5.58.48_PM_1_eahpb3.jpg",
+        type: "mobile",
+      },
+      {
+        src: "https://res.cloudinary.com/dmwgohvub/image/upload/v1773063276/WhatsApp_Image_2026-03-08_at_5.58.47_PM_1_prk3p7.jpg",
+        type: "mobile",
+      },
+      {
+        src: "https://res.cloudinary.com/dmwgohvub/image/upload/v1773063272/WhatsApp_Image_2026-03-08_at_5.58.49_PM_1_njc8v2.jpg",
+        type: "mobile",
+      },
+      {
+        src: "https://res.cloudinary.com/dmwgohvub/image/upload/v1773063272/WhatsApp_Image_2026-03-08_at_5.58.49_PM_2_eixmos.jpg",
+        type: "mobile",
+      },
+    ],
+    webVideoUrl: null,
+    mobileVideoUrl:
+      "https://res.cloudinary.com/dmwgohvub/video/upload/v1773060124/WhatsApp_Video_2026-03-09_at_5.42.02_PM_hezhg8.mp4",
   },
 ];
